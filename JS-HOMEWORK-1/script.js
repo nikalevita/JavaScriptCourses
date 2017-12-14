@@ -8,11 +8,11 @@ function qSort(mainArr){
 		arr[indexB] = temp;
 	}
 		
-	function newPivot(mainArr, pivot, leftEl, rightEl){
+	function partition(mainArr, pivot, leftEl, rightEl){
 		var newIndex = leftEl,
 			pivotVal = mainArr[pivot];
 
-		swap(mainArr, pivot, rightEl); //  в конец	
+		swap(mainArr, pivot, rightEl);
 
 		for(var i = 0; i < rightEl - leftEl; i++){
 			if(mainArr[i] <= pivotVal){
@@ -21,23 +21,34 @@ function qSort(mainArr){
 			}
 		}
 
-		swap(mainArr, rightEl, newIndex); //  назад	
+		swap(mainArr, rightEl, newIndex);
 
 		return newIndex;
 	}
 
-	function sort(mainArr, leftEl, rightEl) {
-		if(leftEl < rightEl) {
-			sort(mainArr, leftEl, newPivot(mainArr, parseInt((leftEl + rightEl) / 2), leftEl, rightEl) - 1);
-			sort(mainArr, newPivot(mainArr, parseInt((leftEl + rightEl) / 2), leftEl, rightEl) + 1, rightEl);
-		}
-	}
+	var firstStep = partition(mainArr, parseInt((mainArr.length)-1 / 2), 0, mainArr.length - 1);
 
+	/* ---------- END OK ----------- */
+
+	/* NOT OK */
+	function sort(mainArr, leftEl, rightEl) {
+
+		/*var firstStep = partition(mainArr, parseInt((leftEl + rightEl) / 2), leftEl, rightEl);
+
+		if (leftEl < firstStep - 1){
+			sort(mainArr, leftEl, firstStep-1);
+		}
+		if (rightEl > firstStep){	
+			sort(mainArr, firstStep, rightEl);
+		}
+	*/
+	}
 	sort(mainArr, 0, mainArr.length - 1);
+
 
 	return mainArr;
 }
 
-var mainArr = [5,4,98,141,3,88,45,100,51,32,98,0,200];
+var mainArr = [5,4,98,11,6,0,20,50,250,6,5,0,100,2];
 console.log(mainArr);
 console.log(qSort(mainArr));
