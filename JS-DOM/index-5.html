@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Свойства узлов - 1</title>
+      <meta charset="utf-8" />
+   </head>
+   <body>
+      <div><b>Привет мир!</b></div>
+      <div><i>Привет мир!</i></div>
+      <script>
+         /* 1. Поменяйте местами содержимое элементов <div>. */
+
+      var firstDiv = document.body.children[0],
+         firstDivHtml = document.body.children[0].innerHTML,
+         secondDiv = document.body.children[1],
+         secondDivHtml = document.body.children[1].innerHTML;
+
+      firstDiv.innerHTML = secondDivHtml;
+      secondDiv.innerHTML = firstDivHtml;
+
+      </script>
+   </body>
+</html>

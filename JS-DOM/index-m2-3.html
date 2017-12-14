@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Создание узлов. Добавление узлов</title>
+      <meta charset="utf-8" />
+   </head>
+   <body>
+      <form>
+         Имя: <input type="text" name="name" /><br />
+         Возраст: <input type="text" name="age" /><br />
+      </form>
+      <script>
+         /*
+            1. Создайте кнопку для отправки данных формы;
+            2. Добавьте созданную кнопку в конец формы.
+         */
+
+         var submitBtn = document.createElement("button");
+         submitBtn.innerHTML = 'Отправить';
+         submitBtn.type = 'submit';
+
+         document.forms[0].appendChild(submitBtn);
+
+      </script>
+   </body>
+</html>

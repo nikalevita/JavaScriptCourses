@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Поиск узлов</title>
+      <meta charset="utf-8" />
+   </head>
+   <body>
+      <form name="search">
+         <label>Поиск по сайту: <input type="text" name="search" /></label>
+         <input type="submit" value="Искать!" />
+      </form>
+      <hr />
+      <form name="search-person">
+         Поиск по посетителям:
+         <table id="age-table">
+            <tr>
+               <td>Возраст:</td>
+               <td id="age-list">
+                  <label><input type="radio" name="age" value="young" />до 18</label>
+                  <label><input type="radio" name="age" value="mature" />18-50</label>
+                  <label><input type="radio" name="age" value="senior" />более 50</label>
+            </td>
+            </tr>
+            <tr>
+               <td>Дополнительно:</td>
+               <td>
+                  <input type="text" name="info[0]" />
+                  <input type="text" name="info[1]" />
+                  <input type="text" name="info[2]" />
+               </td>
+            </tr>
+         </table>
+         <input type="submit" value="Искать!" />
+      </form>
+      <script>
+         /*
+            Найдите (получите в переменную):
+            1. Все элементы <label> внутри таблицы. Должно быть 3 элемента;
+            2. Первую ячейку таблицы (с текстом Возраст:);
+            3. Вторую форму в документе;
+            4. Форму с именем "search", без использования её позиции в документе;
+            5. Элемент <input> в форме с именем "search";
+            6. Элемент с именем "info[0]", без точного знания его позиции в документе;
+            7. Элемент с именем "info[0]", внутри формы с именем "search-person";
+            8. Выведите значения переменных на экран.
+         */
+
+         /*1*/
+         var label = document.getElementById('age-table').getElementsByTagName('label');
+         console.log(label);
+
+         /*2*/
+         var firstCell = document.getElementById('age-table').getElementsByTagName('td')[0];
+         console.log(firstCell);
+
+         /*3*/
+         var secondForm = document.getElementsByTagName('form')[1];
+         console.log(secondForm);
+
+         /*4*/
+         var searchForm = document.querySelector('form[name=search]');
+         console.log(searchForm);
+
+         /*5*/
+         var inputSearch = searchForm.querySelectorAll('input');
+         console.log(inputSearch);
+
+         /*6*/
+         var info0 = document.getElementsByName('info[0]')[0];
+         console.log(info0);
+
+         /*7*/
+         var info01 = document.querySelector('form[name="search-person"] input[name="info[0]"]');
+         console.log(info01);
+
+      </script>
+   </body>
+</html>
